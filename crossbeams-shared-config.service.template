@@ -1,0 +1,14 @@
+[Unit]
+Description=Crossbeams Shared Config
+Requires=network.target
+
+[Service]
+Type=simple
+User=james
+Group=james
+WorkingDirectory=/home/james/ra/crossbeams/shared_config
+Restart=on-failure
+ExecStart=/home/james/ra/crossbeams/shared_config/shared_config_wrapper.sh
+
+[Install]
+WantedBy=multi-user.target
