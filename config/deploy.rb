@@ -1,6 +1,8 @@
 # config valid for current version and patch releases of Capistrano
 lock '~> 3.11.0'
 
+set :chruby_ruby, 'ruby-2.5.0'
+
 set :application, 'shared_config'
 set :repo_url, 'git@github.com:NoSoft-SA/shared_config.git'
 
@@ -42,14 +44,16 @@ append :linked_files, '.env.local', 'shared_config_wrapper.sh', 'crossbeams-shar
 namespace :devops do
   desc 'Copy initial files'
   task :copy_initial do
-    on roles(:app) do |_|
+    on roles(:app) do |host|
       upload! 'shared_config_wrapper.sh.template', "#{shared_path}/shared_config_wrapper.sh"
       upload! 'crossbeams-shared-config.service.template', "#{shared_path}/crossbeams-shared-config.service"
       # Change $SHARED && $USER in above 2 files to shared_path and user
-      execute :sed, "-i 's/$USER/#{user}/g #{shared_path}/crossbeams-shared-config.service"
-      execute :sed, "-i 's/$SHARED/#{shared_path}/g #{shared_path}/crossbeams-shared-config.service"
-      execute :sed, "-i 's/$SHARED/#{shared_path}/g #{shared_path}/shared_config_wrapper.sh"
+      execute :sed, "-i 's/$USER/#{host.user}/g' #{shared_path}/crossbeams-shared-config.service"
+      execute :sed, "-i 's/$SHARED/#{shared_path.to_s.gsub('/', '\/')}/g' #{shared_path}/crossbeams-shared-config.service"
+      execute :sed, "-i 's/$SHARED/#{current_path.to_s.gsub('/', '\/')}/g' #{shared_path}/shared_config_wrapper.sh"
       execute :touch, "#{shared_path}/.env.local"
+      # TODO: sudo cp #{shared_path}/crossbeams-shared-config.service /etc/systemd/system/crossbeams-shared-config.service
+      # && restart service at end of deploy
     end
   end
 end
