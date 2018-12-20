@@ -4,11 +4,11 @@ Requires=network.target
 
 [Service]
 Type=simple
-User=james
-Group=james
-WorkingDirectory=/home/james/ra/crossbeams/shared_config
+User=$USER
+Group=$USER
+WorkingDirectory=$SHARED
 Restart=on-failure
-ExecStart=/home/james/ra/crossbeams/shared_config/shared_config_wrapper.sh
+ExecStart=$SHARED/shared_config_wrapper.sh
 
 [Install]
 WantedBy=multi-user.target
