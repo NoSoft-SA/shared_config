@@ -47,13 +47,26 @@ namespace :devops do
     on roles(:app) do |host|
       upload! 'shared_config_wrapper.sh.template', "#{shared_path}/shared_config_wrapper.sh"
       upload! 'crossbeams-shared-config.service.template', "#{shared_path}/crossbeams-shared-config.service"
-      # Change $SHARED && $USER in above 2 files to shared_path and user
+
       execute :sed, "-i 's/$USER/#{host.user}/g' #{shared_path}/crossbeams-shared-config.service"
-      execute :sed, "-i 's/$SHARED/#{shared_path.to_s.gsub('/', '\/')}/g' #{shared_path}/crossbeams-shared-config.service"
-      execute :sed, "-i 's/$SHARED/#{current_path.to_s.gsub('/', '\/')}/g' #{shared_path}/shared_config_wrapper.sh"
+      execute :sed, "-i 's/$CURRENT/#{current_path.to_s.gsub('/', '\/')}/g' #{shared_path}/crossbeams-shared-config.service"
+      execute :sed, "-i 's/$CURRENT/#{current_path.to_s.gsub('/', '\/')}/g' #{shared_path}/shared_config_wrapper.sh"
+
+      execute :sudo, :cp, "#{shared_path}/crossbeams-shared-config.service /etc/systemd/system/crossbeams-shared-config.service"
+
       execute :touch, "#{shared_path}/.env.local"
+      # sudo cp /home/nsld/shared_config/shared/crossbeams-shared-config.service /etc/systemd/system/
       # TODO: sudo cp #{shared_path}/crossbeams-shared-config.service /etc/systemd/system/crossbeams-shared-config.service
       # && restart service at end of deploy
+      # sudo systemctl restart crossbeams-shared-config.service
+    end
+  end
+end
+
+namespace :deploy do
+  after :updated, :restart_service do
+    on roles(:app) do |_|
+      execute :sudo, :systemctl, 'restart crossbeams-shared-config.service'
     end
   end
 end

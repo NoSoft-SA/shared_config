@@ -6,9 +6,9 @@ Requires=network.target
 Type=simple
 User=$USER
 Group=$USER
-WorkingDirectory=$SHARED
+WorkingDirectory=$CURRENT
 Restart=on-failure
-ExecStart=$SHARED/shared_config_wrapper.sh
+ExecStart=$CURRENT/shared_config_wrapper.sh
 
 [Install]
 WantedBy=multi-user.target
