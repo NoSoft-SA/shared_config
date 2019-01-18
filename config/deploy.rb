@@ -83,7 +83,11 @@ namespace :deploy do
     # set pty: true #### SEE if this solves the sudo cp issue...
     on roles(:app) do |_|
       # execute :sudo, :systemctl, 'restart crossbeams-shared-config.service'
-      puts('REMEMBER: Restart the service:: sudo systemctl restart crossbeams-shared-config.service')
+      puts('---------------------------------------------------------------------------------------------')
+      puts('---')
+      puts('--- REMEMBER: Restart the service:: sudo systemctl restart crossbeams-shared-config.service')
+      puts('---')
+      puts('---------------------------------------------------------------------------------------------')
     end
   end
 end
