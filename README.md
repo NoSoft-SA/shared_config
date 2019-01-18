@@ -16,26 +16,40 @@ require 'drb/drb'
 DRb.start_service
 remote_object = DRbObject.new_with_uri('druby://localhost:9999')
 
-p remote_object.list_names(:packmat)
+p remote_object.list_names('Pack Material')
 p remote_object.list_all_names
-p remote_object.config_for(:packmat).inspect
+p remote_object.config_for('Pack Material').inspect
 ~~~
 
 ## To run on a deployed machine
 
-* Modify `shared_config_wrapper.sh` to point to the correct path.
-* Modify `crossbeams-shared-config.service`.
+* Modify `shared_config_wrapper.sh` to point to the correct path. _This is done by the Capistrano deploy task._
+* Modify `crossbeams-shared-config.service`. _This is done by the Capistrano deploy task._
 * Copy `crossbeams-shared-config.service` to `/etc/systemd/system/crossbeams-shared-config.service`.
 * Start: `sudo systemctl start crossbeams-shared-config.service`
 * Stop: `sudo systemctl stop crossbeams-shared-config.service`
 * Restart: `sudo systemctl restart crossbeams-shared-config.service`
 * Check status: `sudo systemctl status crossbeams-shared-config.service`.
 
+## To create systemd init script on a development machine
+
+After cloning the repository, create `shared_config_wrapper.sh` and `crossbeams-shared-config.service` from the template files and adjust the paths to your local path.
+```
+cp shared_config_wrapper.sh.template shared_config_wrapper.sh
+sed -i s,'$CURRENT',"$PWD",g ./shared_config_wrapper.sh
+
+cp crossbeams-shared-config.service.template crossbeams-shared-config.service
+sed -i s,'$CURRENT',"$PWD",g ./crossbeams-shared-config.service
+sed -i s,'$USER',"$USER",g ./crossbeams-shared-config.service
+```
+
+Then follow the steps from **Copy** above.
+
 ## Format of label config hash
 
 The rules for CMS are different from others in that they do not have a `:resolver` (the specification for how to render a variable are set up in the print template fields area in CMS Setup).
 
-The config has sections for various applications (e.g. `:cms` for CMS and `:packmat` for Pack Materials.
+The config has sections for various applications (e.g. `'CMS'` for CMS and `'Pack Material'` for Pack Materials.
 Within each section are unique variable names and their attributes. The variable names are what the users interact with and which are stored in NSLD label definitions.
 
 The attributes are:
@@ -64,3 +78,21 @@ BASE_CONFIG = {
   }
 }.freeze
 ~~~
+
+## Deployment
+
+Use Capistrano (after `master` branch on github has been updated): `bundle exec cap <CLIENT> deploy`.
+
+For initial deployment, run:
+
+* `bundle exec cap <CLIENT> devops:copy_initial`
+* `bundle exec cap <CLIENT> deploy:check`
+* `bundle exec cap <CLIENT> deploy`
+
+Then make systemd startup script - from the root of the deployed code on the server:
+
+* `sudo cp crossbeams-shared-config.service /etc/systemd/system/crossbeams-shared-config.service`
+* `sudo systemctl enable crossbeams-shared-config`
+* `sudo systemctl start crossbeams-shared-config`
+
+Note that after each new deployment you need to run `sudo systemctl restart crossbeams-shared-config` for the changed configuration to take effect.

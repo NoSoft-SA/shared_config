@@ -5,7 +5,7 @@
 # Store configuration for label printing and designing.
 class ConfigEngine # rubocop:disable Metrics/ClassLength
   BASE_CONFIG = {
-    cms: {
+    'CMS' => {
       'Custom Variable' => { group: 'Custom', resolver: 'NONE', applications: ['CMS'] },
       'Commodity' => { group: 'Commodity', resolver: 'rmt_commodity_code', applications: ['CMS'] },
       'Commodity Short Description' => { group: 'Commodity', resolver: 'print_value_rmt_commodity, desc_short', applications: ['CMS'] },
@@ -106,7 +106,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Voice Code Small digits' => { group: 'Voice Code', resolver: 'print_value_voice_code, small', applications: ['CMS'] },
       'PLU' => { group: 'PLU', resolver: 'plu', applications: ['CMS'] }
     },
-    packmat: {
+    'Pack Material' => {
       'Location Barcode' => { group: 'Locaton', resolver: 'BCD:location', applications: ['Location'] },
       'Location Code' => { group: 'Locaton', resolver: 'location_code', applications: ['Location'] },
       'Location Description' => { group: 'Locaton', resolver: 'location_description', applications: ['Location'] },
@@ -114,13 +114,20 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'SKU Barcode' => { group: 'SKU', resolver: 'BCD:sku', applications: ['Material Resource SKU Barcode'] },
       'SKU Number' => { group: 'SKU', resolver: 'sku_number', applications: ['Material Resource SKU Barcode'] },
       'Product Variant Code' => { group: 'Product', resolver: 'product_variant_code', applications: ['Material Resource SKU Barcode'] },
-      'Batch Number' => { group: 'Delivery', resolver: 'batch_number', applications: ['Material Resource SKU Barcode'] }
+      'Batch Number' => { group: 'Delivery', resolver: 'batch_number', applications: ['Material Resource SKU Barcode'] },
+      'Delivery Number' => { group: 'Delivery', resolver: 'delivery_number', applications: ['Material Resource SKU Barcode'] },
+      'Delivery Barcode' => { group: 'Delivery', resolver: 'BCD:delivery', applications: ['Material Resource SKU Barcode'] }
     }
   }.freeze
 
   # Return list of group, key for use in designing.
   def list_names(section)
     BASE_CONFIG[section].map { |key, val| [val[:group], key] }.sort
+  end
+
+  # Return a hash keyed by group with array of keys for use in designing.
+  def grouped_names(section)
+    BASE_CONFIG[section].group_by { |_, v| v[:group] }.each_with_object({}) { |(k, v), hs| hs[k] = v.map(&:first) }
   end
 
   def list_all_names

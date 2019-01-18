@@ -44,6 +44,7 @@ append :linked_files, '.env.local', 'shared_config_wrapper.sh', 'crossbeams-shar
 namespace :devops do
   desc 'Copy initial files'
   task :copy_initial do
+    # set pty: true #### SEE if this solves the sudo cp issue...
     on roles(:app) do |host|
       upload! 'shared_config_wrapper.sh.template', "#{shared_path}/shared_config_wrapper.sh"
       upload! 'crossbeams-shared-config.service.template', "#{shared_path}/crossbeams-shared-config.service"
@@ -52,7 +53,21 @@ namespace :devops do
       execute :sed, "-i 's/$CURRENT/#{current_path.to_s.gsub('/', '\/')}/g' #{shared_path}/crossbeams-shared-config.service"
       execute :sed, "-i 's/$CURRENT/#{current_path.to_s.gsub('/', '\/')}/g' #{shared_path}/shared_config_wrapper.sh"
 
-      execute :sudo, :cp, "#{shared_path}/crossbeams-shared-config.service /etc/systemd/system/crossbeams-shared-config.service"
+      puts('---------------------------------------------------------------------------------------------')
+      puts('Now login to the server and copy the service and enable it to start at reboot:')
+      puts('sudo cp crossbeams-shared-config.service /etc/systemd/system/crossbeams-shared-config.service')
+      puts('sudo systemctl enable crossbeams-shared-config')
+      puts('sudo systemctl start crossbeams-shared-config')
+      puts('---------------------------------------------------------------------------------------------')
+
+      ### execute :mkdir, '-p ~/.config/systemd/user'
+      ### execute :cp, "#{shared_path}/crossbeams-shared-config.service ~/.config/systemd/user/crossbeams-shared-config.service"
+
+      # execute :sudo, :cp, "#{shared_path}/crossbeams-shared-config.service /etc/systemd/system/crossbeams-shared-config.service"
+      # restart_command = [:cp, "#{shared_path}/crossbeams-shared-config.service /etc/systemd/system/crossbeams-shared-config.service"]
+      # # We preprocess the command with SSHKit::Command to allow 'passenger-config' to be transformed with the command map.
+      # restart_command = [:sudo, SSHKit::Command.new(*restart_command).to_s]
+      # execute *restart_command
 
       execute :touch, "#{shared_path}/.env.local"
       # sudo cp /home/nsld/shared_config/shared/crossbeams-shared-config.service /etc/systemd/system/
@@ -65,8 +80,10 @@ end
 
 namespace :deploy do
   after :updated, :restart_service do
+    # set pty: true #### SEE if this solves the sudo cp issue...
     on roles(:app) do |_|
-      execute :sudo, :systemctl, 'restart crossbeams-shared-config.service'
+      # execute :sudo, :systemctl, 'restart crossbeams-shared-config.service'
+      puts('REMEMBER: Restart the service:: sudo systemctl restart crossbeams-shared-config.service')
     end
   end
 end
