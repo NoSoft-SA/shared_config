@@ -25,7 +25,8 @@ p remote_object.config_for('Pack Material').inspect
 
 * Modify `shared_config_wrapper.sh` to point to the correct path. _This is done by the Capistrano deploy task._
 * Modify `crossbeams-shared-config.service`. _This is done by the Capistrano deploy task._
-* Copy `crossbeams-shared-config.service` to `/etc/systemd/system/crossbeams-shared-config.service`.
+* Copy `sudo cp crossbeams-shared-config.service /etc/systemd/system/crossbeams-shared-config.service`.
+* Enable `sudo systemctl enable crossbeams-shared-config`
 * Start: `sudo systemctl start crossbeams-shared-config.service`
 * Stop: `sudo systemctl stop crossbeams-shared-config.service`
 * Restart: `sudo systemctl restart crossbeams-shared-config.service`
@@ -35,6 +36,8 @@ p remote_object.config_for('Pack Material').inspect
 
 After cloning the repository, create `shared_config_wrapper.sh` and `crossbeams-shared-config.service` from the template files and adjust the paths to your local path.
 ```
+bundle install
+
 cp shared_config_wrapper.sh.template shared_config_wrapper.sh
 sed -i s,'$CURRENT',"$PWD",g ./shared_config_wrapper.sh
 
