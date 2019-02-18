@@ -52,6 +52,7 @@ namespace :devops do
       execute :sed, "-i 's/$USER/#{host.user}/g' #{shared_path}/crossbeams-shared-config.service"
       execute :sed, "-i 's/$CURRENT/#{current_path.to_s.gsub('/', '\/')}/g' #{shared_path}/crossbeams-shared-config.service"
       execute :sed, "-i 's/$CURRENT/#{current_path.to_s.gsub('/', '\/')}/g' #{shared_path}/shared_config_wrapper.sh"
+      execute :sed, "-i 's/$RUBY/#{chruby_ruby}/g' #{shared_path}/shared_config_wrapper.sh"
 
       puts('---------------------------------------------------------------------------------------------')
       puts('Now login to the server and copy the service and enable it to start at reboot:')

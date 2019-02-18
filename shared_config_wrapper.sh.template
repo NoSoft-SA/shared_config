@@ -1,4 +1,4 @@
 #!/bin/bash
 source /usr/local/share/chruby/chruby.sh && \
-  chruby ruby-2.5.0 && \
+  chruby $RUBY && \
   exec bundle exec $CURRENT/shared_config.rb
