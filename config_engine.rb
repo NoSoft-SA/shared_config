@@ -108,9 +108,10 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
     },
     'Pack Material' => {
       'Location Barcode' => { group: 'Locaton', resolver: 'BCD:location', applications: ['Location'] },
-      'Location Code' => { group: 'Locaton', resolver: 'location_code', applications: ['Location'] },
+      'Location Long Code' => { group: 'Locaton', resolver: 'location_long_code', applications: ['Location'] },
+      'Location Short Code' => { group: 'Locaton', resolver: 'location_short_code', applications: ['Location'] },
+      'Location Print Code' => { group: 'Locaton', resolver: 'location_print_code', applications: ['Location'] },
       'Location Description' => { group: 'Locaton', resolver: 'location_description', applications: ['Location'] },
-      'Location Legacy Barcode' => { group: 'Locaton', resolver: 'legacy_barcode', applications: ['Location'] },
       'SKU Barcode' => { group: 'SKU', resolver: 'BCD:sku', applications: ['Material Resource SKU Barcode'] },
       'SKU Number' => { group: 'SKU', resolver: 'sku_number', applications: ['Material Resource SKU Barcode'] },
       'Product Variant Code' => { group: 'Product', resolver: 'product_variant_code', applications: ['Material Resource SKU Barcode'] },
