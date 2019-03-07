@@ -41,6 +41,8 @@ append :linked_files, '.env.local', 'shared_config_wrapper.sh', 'crossbeams-shar
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure
 
+set :chruby_version, -> { fetch(:chruby_ruby) }
+
 namespace :devops do
   desc 'Copy initial files'
   task :copy_initial do
@@ -50,9 +52,11 @@ namespace :devops do
       upload! 'crossbeams-shared-config.service.template', "#{shared_path}/crossbeams-shared-config.service"
 
       execute :sed, "-i 's/$USER/#{host.user}/g' #{shared_path}/crossbeams-shared-config.service"
+      execute :sed, "-i 's/$SHARED/#{shared_path.to_s.gsub('/', '\/')}/g' #{shared_path}/crossbeams-shared-config.service"
       execute :sed, "-i 's/$CURRENT/#{current_path.to_s.gsub('/', '\/')}/g' #{shared_path}/crossbeams-shared-config.service"
       execute :sed, "-i 's/$CURRENT/#{current_path.to_s.gsub('/', '\/')}/g' #{shared_path}/shared_config_wrapper.sh"
-      execute :sed, "-i 's/$RUBY/#{chruby_ruby}/g' #{shared_path}/shared_config_wrapper.sh"
+      execute :sed, "-i 's/$RUBY/#{fetch(:chruby_version)}/g' #{shared_path}/shared_config_wrapper.sh"
+      # execute :sed, "-i 's/$RUBY/ruby-2.5.0/g' #{shared_path}/shared_config_wrapper.sh"
 
       puts('---------------------------------------------------------------------------------------------')
       puts('Now login to the server and copy the service and enable it to start at reboot:')
