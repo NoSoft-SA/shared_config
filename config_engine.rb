@@ -107,17 +107,18 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'PLU' => { group: 'PLU', resolver: 'plu', applications: ['CMS'] }
     },
     'Pack Material' => {
-      'Location Barcode' => { group: 'Locaton', resolver: 'BCD:location', applications: ['Location'] },
-      'Location Long Code' => { group: 'Locaton', resolver: 'location_long_code', applications: ['Location'] },
-      'Location Short Code' => { group: 'Locaton', resolver: 'location_short_code', applications: ['Location'] },
-      'Location Print Code' => { group: 'Locaton', resolver: 'location_print_code', applications: ['Location'] },
-      'Location Description' => { group: 'Locaton', resolver: 'location_description', applications: ['Location'] },
-      'SKU Barcode' => { group: 'SKU', resolver: 'BCD:sku', applications: ['Material Resource SKU Barcode'] },
-      'SKU Number' => { group: 'SKU', resolver: 'sku_number', applications: ['Material Resource SKU Barcode'] },
-      'Product Variant Code' => { group: 'Product', resolver: 'product_variant_code', applications: ['Material Resource SKU Barcode'] },
+      'Location Barcode' => { group: 'Locaton', resolver: 'BCD:location', applications: ['Location', 'Stock Adjustment'] },
+      'Location Long Code' => { group: 'Locaton', resolver: 'location_long_code', applications: ['Location', 'Stock Adjustment'] },
+      'Location Short Code' => { group: 'Locaton', resolver: 'location_short_code', applications: ['Location', 'Stock Adjustment'] },
+      'Location Print Code' => { group: 'Locaton', resolver: 'location_print_code', applications: ['Location', 'Stock Adjustment'] },
+      'Location Description' => { group: 'Locaton', resolver: 'location_description', applications: ['Location', 'Stock Adjustment'] },
+      'SKU Barcode' => { group: 'SKU', resolver: 'BCD:sku', applications: ['Material Resource SKU Barcode', 'Stock Adjustment'] },
+      'SKU Number' => { group: 'SKU', resolver: 'sku_number', applications: ['Material Resource SKU Barcode', 'Stock Adjustment'] },
+      'Product Variant Code' => { group: 'Product', resolver: 'product_variant_code', applications: ['Material Resource SKU Barcode', 'Stock Adjustment'] },
       'Batch Number' => { group: 'Delivery', resolver: 'batch_number', applications: ['Material Resource SKU Barcode'] },
       'Delivery Number' => { group: 'Delivery', resolver: 'delivery_number', applications: ['Material Resource SKU Barcode'] },
-      'Delivery Barcode' => { group: 'Delivery', resolver: 'BCD:delivery', applications: ['Material Resource SKU Barcode'] }
+      'Delivery Barcode' => { group: 'Delivery', resolver: 'BCD:delivery', applications: ['Material Resource SKU Barcode'] },
+      'Stock Adjustment Number' => { group: 'Stock Adjustment', resolver: 'BCD:stock_adjustment', applications: ['Stock Adjustment'] }
     }
   }.freeze
 
