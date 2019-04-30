@@ -115,6 +115,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'SKU Barcode' => { group: 'SKU', resolver: 'BCD:sku', applications: ['Material Resource SKU Barcode', 'Stock Adjustment'] },
       'SKU Number' => { group: 'SKU', resolver: 'sku_number', applications: ['Material Resource SKU Barcode', 'Stock Adjustment'] },
       'Product Variant Code' => { group: 'Product', resolver: 'product_variant_code', applications: ['Material Resource SKU Barcode', 'Stock Adjustment'] },
+      'Product Variant Number' => { group: 'Product', resolver: 'product_variant_number', applications: ['Material Resource SKU Barcode', 'Stock Adjustment'] },
       'Batch Number' => { group: 'Delivery', resolver: 'batch_number', applications: ['Material Resource SKU Barcode'] },
       'Delivery Number' => { group: 'Delivery', resolver: 'delivery_number', applications: ['Material Resource SKU Barcode'] },
       'Delivery Barcode' => { group: 'Delivery', resolver: 'BCD:delivery', applications: ['Material Resource SKU Barcode'] },
