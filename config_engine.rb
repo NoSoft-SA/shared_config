@@ -68,6 +68,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Container ID' => { group: 'Container', resolver: 'print_value_static, (99)', applications: ['CMS'] },
       'Decrypted Container ID' => { group: 'Container', resolver: 'print_value_static, (93)', applications: ['CMS'] },
       'Industry number' => { group: 'Industry number', resolver: 'print_value_static, (98)', applications: ['CMS'] },
+      'System date' => { group: 'System', resolver: 'print_value_static, (92)', applications: ['CMS'] },
       'System time' => { group: 'System', resolver: 'print_value_static, (97)', applications: ['CMS'] },
       'Personnel Name' => { group: 'Personnel', resolver: 'print_value_static, (96)', applications: ['CMS'] },
       'Personnel Surname' => { group: 'Personnel', resolver: 'print_value_static, (95)', applications: ['CMS'] },
