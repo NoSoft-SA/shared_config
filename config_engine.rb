@@ -122,6 +122,12 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Delivery Barcode' => { group: 'Delivery', resolver: 'BCD:delivery', applications: ['Material Resource SKU Barcode'] },
       'Stock Adjustment Number' => { group: 'Stock Adjustment', resolver: 'BCD:stock_adjustment', applications: ['Stock Adjustment'] }
     },
+    'NS Packhouse' => {
+      'Carton Number' => { group: 'Packhouse variables', resolver: 'carton_number', applications: ['Cartons'] },
+      'Bin barcode' => { group: 'Bin', resolver: 'BCD:bin', applications: ['Bins'] },
+      'Orchard' => { group: 'Farm', resolver: 'orchard_code', applications: ['Bins'] },
+      'Cultivar' => { group: 'Cultivar', resolver: 'cultivar_name', applications: ['Bins'] }
+    },
     'UD Packhouse' => {
       'Account Code' => { group: 'Packhouse variables', resolver: 'account_code', applications: ['Packing'] },
       'Batch Code' => { group: 'Packhouse variables', resolver: 'batch_code', applications: ['Packing'] },
