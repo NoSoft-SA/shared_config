@@ -123,6 +123,11 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Stock Adjustment Number' => { group: 'Stock Adjustment', resolver: 'BCD:stock_adjustment', applications: ['Stock Adjustment'] }
     },
     'NS Packhouse' => {
+      'Location Barcode' => { group: 'Location', resolver: 'BCD:location', applications: ['Location'] },
+      'Location Long Code' => { group: 'Location', resolver: 'location_long_code', applications: ['Location'] },
+      'Location Short Code' => { group: 'Location', resolver: 'location_short_code', applications: ['Location'] },
+      'Location Print Code' => { group: 'Location', resolver: 'print_code', applications: ['Location'] },
+      'Location Description' => { group: 'Location', resolver: 'location_description', applications: ['Location'] },
       'Carton Number' => { group: 'Packhouse variables', resolver: 'carton_number', applications: ['Cartons'] },
       'Bin barcode' => { group: 'Bin', resolver: 'BCD:bin', applications: ['Bins'] },
       'Orchard' => { group: 'Farm', resolver: 'orchard_code', applications: ['Bins'] },
