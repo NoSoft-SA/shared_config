@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 # rubocop:disable Metrics/LineLength
+# rubocop:disable Style/WordArray
 
 # Store configuration for label printing and designing.
 class ConfigEngine # rubocop:disable Metrics/ClassLength
@@ -128,10 +129,40 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Location Short Code' => { group: 'Location', resolver: 'location_short_code', applications: ['Location'] },
       'Location Print Code' => { group: 'Location', resolver: 'print_code', applications: ['Location'] },
       'Location Description' => { group: 'Location', resolver: 'location_description', applications: ['Location'] },
-      'Carton Number' => { group: 'Packhouse variables', resolver: 'carton_number', applications: ['Cartons'] },
-      'Bin barcode' => { group: 'Bin', resolver: 'BCD:bin', applications: ['Bins'] },
-      'Orchard' => { group: 'Farm', resolver: 'orchard_code', applications: ['Bins'] },
-      'Cultivar' => { group: 'Cultivar', resolver: 'cultivar_name', applications: ['Bins'] }
+      'Carton Number' => { group: 'Carton', resolver: 'carton_label_id', applications: ['Cartons'] },
+      'Production Run ID' => { group: 'Packhouse', resolver: 'production_run_id', applications: ['Cartons'] },
+      'Packhouse' => { group: 'Packhouse', resolver: 'packhouse', applications: ['Cartons'] },
+      'Line' => { group: 'Packhouse', resolver: 'line', applications: ['Cartons'] },
+      'Label Name' => { group: 'Carton', resolver: 'label_name', applications: ['Cartons'] },
+      'Farm' => { group: 'Farm', resolver: 'farm_code', applications: ['Cartons'] },
+      'PUC' => { group: 'Farm', resolver: 'puc_code', applications: ['Cartons'] },
+      'Orchard' => { group: 'Farm', resolver: 'orchard_code', applications: ['Bins', 'Cartons'] },
+      'Commodity' => { group: 'Fruit', resolver: 'commodity', applications: ['Cartons'] },
+      'Cultivar Group' => { group: 'Fruit', resolver: 'cultivar_group_code', applications: ['Cartons'] },
+      'Cultivar' => { group: 'Fruit', resolver: 'cultivar_name', applications: ['Bins', 'Cartons'] },
+      'Marketing Variety' => { group: 'Fruit', resolver: 'marketing_variety_code', applications: ['Cartons'] },
+      'Customer Variety' => { group: 'Fruit', resolver: 'customer_variety_code', applications: ['Cartons'] },
+      'Size Count' => { group: 'Fruit', resolver: 'size_count_value', applications: ['Cartons'] },
+      'Size Reference' => { group: 'Fruit', resolver: 'size_reference', applications: ['Cartons'] },
+      'Actual Count' => { group: 'Fruit', resolver: 'actual_count_for_pack', applications: ['Cartons'] },
+      'Basic Pack' => { group: 'Carton', resolver: 'basic_pack_code', applications: ['Cartons'] },
+      'Standard Pack' => { group: 'Carton', resolver: 'standard_pack_code', applications: ['Cartons'] },
+      'Marketer' => { group: 'Marketing', resolver: 'marketer', applications: ['Cartons'] },
+      'Mark' => { group: 'Fruit', resolver: 'mark_code', applications: ['Cartons'] },
+      'Inventory Code' => { group: 'Fruit', resolver: 'inventory_code', applications: ['Cartons'] },
+      'Template' => { group: 'Carton', resolver: 'template_name', applications: ['Cartons'] },
+      'BOM' => { group: 'PAck Materials', resolver: 'bom_code', applications: ['Cartons'] },
+      'Treatments' => { group: 'Marketing', resolver: 'treatments', applications: ['Cartons'] },
+      'Client Size Reference' => { group: 'Fruit', resolver: 'client_size_reference', applications: ['Cartons'] },
+      'Client Product Code' => { group: 'Fruit', resolver: 'client_product_code', applications: ['Cartons'] },
+      'Marketing Order No' => { group: 'Marketing', resolver: 'marketing_order_number', applications: ['Cartons'] },
+      'Packed TM' => { group: 'Fruit', resolver: 'packed_tm_group', applications: ['Cartons'] },
+      'Season' => { group: 'Fruit', resolver: 'season_code', applications: ['Cartons'] },
+      'Subtype' => { group: 'Pack Materials', resolver: 'subtype_code', applications: ['Cartons'] },
+      'Type' => { group: 'Pack Materials', resolver: 'pm_type_code', applications: ['Cartons'] },
+      'Cartons Per Pallet' => { group: 'Carton', resolver: 'cartons_per_pallet', applications: ['Cartons'] },
+      'Product Code' => { group: 'Fruit', resolver: 'product_code', applications: ['Cartons'] },
+      'Bin barcode' => { group: 'Bin', resolver: 'BCD:bin', applications: ['Bins'] }
     },
     'UD Packhouse' => {
       'Account Code' => { group: 'Packhouse variables', resolver: 'account_code', applications: ['Packing'] },
@@ -203,3 +234,4 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
   end
 end
 # rubocop:enable Metrics/LineLength
+# rubocop:enable Style/WordArray
