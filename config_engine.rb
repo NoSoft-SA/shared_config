@@ -196,7 +196,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Packer Barcode' => { group: 'Packhouse variables', resolver: 'packer_barcode', applications: ['Packing'] },
       'Packer Incentivized Employee ID' => { group: 'Packhouse variables', resolver: 'packer_incentivized_employee_id', applications: ['Packing'] },
       'PHC' => { group: 'Packhouse variables', resolver: 'phc', applications: ['Packing'] },
-      'Pick Ref' => { group: 'Packhouse variables', resolver: 'pick_reference', applications: ['Packing'] },
+      'Pick Ref' => { group: 'Packhouse variables', resolver: 'pick_ref', applications: ['Packing'] },
       'Product Chars' => { group: 'Packhouse variables', resolver: 'product_chars', applications: ['Packing'] },
       'Production Run ID' => { group: 'Packhouse variables', resolver: 'production_run_id', applications: ['Packing'] },
       'PUC' => { group: 'Packhouse variables', resolver: 'puc', applications: ['Packing'] },
