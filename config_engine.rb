@@ -163,7 +163,11 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Type' => { group: 'Pack Materials', resolver: 'pm_type_code', applications: ['Cartons'] },
       'Cartons Per Pallet' => { group: 'Carton', resolver: 'cartons_per_pallet', applications: ['Cartons'] },
       'Product Code' => { group: 'Fruit', resolver: 'product_code', applications: ['Cartons'] },
-      'Bin barcode' => { group: 'Bin', resolver: 'BCD:bin', applications: ['Bins'] }
+      'Bin barcode' => { group: 'Bin', resolver: 'BCD:bin', applications: ['Bins'] },
+      'Nett weight' => { group: 'Bin', resolver: 'nett_weight', applications: ['Bins'] },
+      'Gross weight' => { group: 'Bin', resolver: 'nett_weight', applications: ['Bins'] },
+      'Weighed date' => { group: 'Bin', resolver: 'weighed_date', applications: ['Bins'] },
+      'UOM' => { group: 'Bin', resolver: 'uom_code', applications: ['Bins'] }
     },
     'UD Packhouse' => {
       'Account Code' => { group: 'Packhouse variables', resolver: 'account_code', applications: ['Packing'] },
