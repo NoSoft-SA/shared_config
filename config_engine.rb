@@ -169,7 +169,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Subtype' => { group: 'Pack Materials', resolver: 'subtype_code', applications: ['Carton'] },
       'Type' => { group: 'Pack Materials', resolver: 'pm_type_code', applications: ['Carton'] },
       'Marketing Org (short)' => { group: 'Marketing', resolver: 'marketing_org_short', applications: ['Pallet'] },
-      'Marketing Org (long)' => { group: 'Marketing', resolver: 'marketing_org_short', applications: ['Pallet'] },
+      'Marketing Org (medium)' => { group: 'Marketing', resolver: 'marketing_org_medium', applications: ['Pallet'] },
       'Marketer' => { group: 'Marketing', resolver: 'marketer', applications: ['Carton'] },
       'Marketing Order No' => { group: 'Marketing', resolver: 'marketing_order_number', applications: ['Carton', 'Pallet'] },
       'Treatments' => { group: 'Marketing', resolver: 'treatments', applications: ['Carton', 'Pallet'] },
