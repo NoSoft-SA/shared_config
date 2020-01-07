@@ -106,7 +106,12 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Target Market Long Description' => { group: 'Target Market', resolver: 'print_value_target_market, desc_long', applications: ['CMS'] },
       'Voice Code Large digits' => { group: 'Voice Code', resolver: 'print_value_voice_code, large', applications: ['CMS'] },
       'Voice Code Small digits' => { group: 'Voice Code', resolver: 'print_value_voice_code, small', applications: ['CMS'] },
-      'PLU' => { group: 'PLU', resolver: 'plu', applications: ['CMS'] }
+      'PLU' => { group: 'PLU', resolver: 'plu', applications: ['CMS'] },
+      'Season' => { group: 'Bin', resolver: 'season', applications: ['CMS'] },
+      'Bin Brand' => { group: 'Bin', resolver: 'bin_brand', applications: ['CMS'] },
+      'Bin Type' => { group: 'Bin', resolver: 'bin_type', applications: ['CMS'] },
+      'Term' => { group: 'Bin', resolver: 'term', applications: ['CMS'] },
+      'Pick Code' => { group: 'Bin', resolver: 'print_pick_code', applications: ['CMS'] }
     },
     'Pack Material' => {
       'Location Barcode' => { group: 'Location', resolver: 'BCD:location', applications: ['Location', 'Stock Adjustment'] },
