@@ -190,6 +190,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Marketer' => { group: 'Marketing', resolver: 'marketer', applications: ['Carton'] },
       'Marketing Order No' => { group: 'Marketing', resolver: 'marketing_order_number', applications: ['Carton', 'Pallet'] },
       'Treatments' => { group: 'Marketing', resolver: 'treatments', applications: ['Carton', 'Pallet'] },
+      'Personnel Number' => { group: 'Personnel', resolver: 'personnel_number', applications: ['Carton'] },
       'Current Date' => { group: 'Time', resolver: 'FNC:current_date', applications: ['Bin', 'Carton', 'Pallet'] },
       'ISO Day' => { group: 'Time', resolver: 'FNC:iso_day', applications: ['Bin', 'Carton', 'Pallet'] },
       'ISO Week' => { group: 'Time', resolver: 'FNC:iso_week', applications: ['Bin', 'Carton', 'Pallet'] },
