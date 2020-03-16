@@ -145,6 +145,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Standard Pack Label Code' => { group: 'Carton', resolver: 'std_pack_label_code', applications: ['Carton', 'Pallet'] },
       'Template' => { group: 'Carton', resolver: 'template_name', applications: ['Carton'] },
       'Farm' => { group: 'Farm', resolver: 'farm_code', applications: ['Carton', 'Pallet'] },
+      'Farm Group' => { group: 'Farm', resolver: 'farm_group_code', applications: ['Carton', 'Pallet'] },
       'Orchard' => { group: 'Farm', resolver: 'orchard_code', applications: ['Bin', 'Carton', 'Pallet'] },
       'PUC' => { group: 'Farm', resolver: 'puc_code', applications: ['Carton', 'Pallet'] },
       'Actual Count' => { group: 'Fruit', resolver: 'actual_count_for_pack', applications: ['Carton', 'Pallet'] },
