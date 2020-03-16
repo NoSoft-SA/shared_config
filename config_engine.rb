@@ -194,6 +194,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Current Date' => { group: 'Time', resolver: 'FNC:current_date', applications: ['Bin', 'Carton', 'Pallet'] },
       'ISO Day' => { group: 'Time', resolver: 'FNC:iso_day', applications: ['Bin', 'Carton', 'Pallet'] },
       'ISO Week' => { group: 'Time', resolver: 'FNC:iso_week', applications: ['Bin', 'Carton', 'Pallet'] },
+      'ISO Weekday' => { group: 'Time', resolver: 'FNC:iso_week_day', applications: ['Bin', 'Carton', 'Pallet'] },
       'Bin barcode' => { group: 'Bin', resolver: 'BCD:bin', applications: ['Bin'] },
       'Gross weight' => { group: 'Bin', resolver: 'gross_weight', applications: ['Bin', 'Pallet'] },
       'Nett weight' => { group: 'Bin', resolver: 'nett_weight', applications: ['Bin', 'Pallet'] },
