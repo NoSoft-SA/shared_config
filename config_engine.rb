@@ -158,6 +158,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Cultivar' => { group: 'Fruit', resolver: 'cultivar_name', applications: ['Bin', 'Carton', 'Pallet'] },
       'Cultivar Description' => { group: 'Fruit', resolver: 'cultivar_description', applications: ['Bin', 'Carton', 'Pallet'] },
       'Customer Variety' => { group: 'Fruit', resolver: 'customer_variety_code', applications: ['Carton', 'Pallet'] },
+      'Customer Variety Description' => { group: 'Fruit', resolver: 'customer_variety_description', applications: ['Carton', 'Pallet'] },
       'Customer or Mkt Variety' => { group: 'Fruit', resolver: 'customer_or_marketing_variety', applications: ['Carton', 'Pallet'] },
       'Customer or Mkt Variety Description' => { group: 'Fruit', resolver: 'customer_or_marketing_variety_desc', applications: ['Carton', 'Pallet'] },
       'Grade' => { group: 'Fruit', resolver: 'grade_code', applications: ['Carton', 'Pallet'] },
