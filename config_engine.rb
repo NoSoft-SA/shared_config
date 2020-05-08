@@ -172,6 +172,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Sell by Code' => { group: 'Fruit', resolver: 'sell_by_code', applications: ['Carton', 'Pallet'] },
       'Count Group' => { group: 'Fruit', resolver: 'size_count_interval_group', applications: ['Carton', 'Pallet'] },
       'Size Count' => { group: 'Fruit', resolver: 'size_count_value', applications: ['Carton', 'Pallet'] },
+      'Marketing size range mm' => { group: 'Fruit', resolver: 'marketing_size_range_mm', applications: ['Carton'] },
       'Count Swap Rule' => { group: 'Fruit', resolver: 'count_swap_rule', applications: ['Carton', 'Pallet'] },
       'Size Count UOM' => { group: 'Fruit', resolver: 'size_count_uom', applications: ['Carton', 'Pallet'] },
       'Size Reference' => { group: 'Fruit', resolver: 'size_reference', applications: ['Carton', 'Pallet'] },
