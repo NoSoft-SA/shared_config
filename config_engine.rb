@@ -192,6 +192,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Marketing Org (medium)' => { group: 'Marketing', resolver: 'marketing_org_medium', applications: ['Pallet'] },
       'Marketer' => { group: 'Marketing', resolver: 'marketer', applications: ['Carton'] },
       'Marketing Order No' => { group: 'Marketing', resolver: 'marketing_order_number', applications: ['Carton', 'Pallet'] },
+      'Product Characteristics' => { group: 'Marketing', resolver: 'product_chars', applications: ['Carton', 'Pallet'] },
       'Treatments' => { group: 'Marketing', resolver: 'treatments', applications: ['Carton', 'Pallet'] },
       'Personnel Number' => { group: 'Personnel', resolver: 'personnel_number', applications: ['Carton'] },
       'Current Date' => { group: 'Time', resolver: 'FNC:current_date', applications: ['Bin', 'Carton', 'Pallet'] },
