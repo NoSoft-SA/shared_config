@@ -108,6 +108,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Voice Code Small digits' => { group: 'Voice Code', resolver: 'print_value_voice_code, small', applications: ['CMS'] },
       'PLU' => { group: 'PLU', resolver: 'plu', applications: ['CMS'] },
       'Season' => { group: 'Bin', resolver: 'season', applications: ['CMS'] },
+      'Delivery Variety' => { :group => 'Bin', :resolver => 'delivery_variety', applications: ['CMS'] },
       'Bin Brand' => { group: 'Bin', resolver: 'bin_brand', applications: ['CMS'] },
       'Bin Type' => { group: 'Bin', resolver: 'bin_type', applications: ['CMS'] },
       'Term' => { group: 'Bin', resolver: 'term', applications: ['CMS'] },
