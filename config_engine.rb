@@ -136,6 +136,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Location Short Code' => { group: 'Location', resolver: 'location_short_code', applications: ['Location'] },
       'Location Print Code' => { group: 'Location', resolver: 'print_code', applications: ['Location'] },
       'Location Description' => { group: 'Location', resolver: 'location_description', applications: ['Location'] },
+      'Pack point (Drop station)' => { group: 'Pack point', resolver: 'plant_resource_code', applications: ['Packpoint'] },
       'Basic Pack' => { group: 'Carton', resolver: 'basic_pack_code', applications: ['Carton', 'Pallet'] },
       'Carton Number' => { group: 'Carton', resolver: 'carton_label_id', applications: ['Carton'] },
       'Pallet Number' => { group: 'Carton', resolver: 'pallet_number', applications: ['Carton', 'Pallet'] },
