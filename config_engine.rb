@@ -199,6 +199,8 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Product Characteristics' => { group: 'Marketing', resolver: 'product_chars', applications: ['Carton', 'Pallet'] },
       'Treatments' => { group: 'Marketing', resolver: 'treatments', applications: ['Carton', 'Pallet'] },
       'Personnel Number' => { group: 'Personnel', resolver: 'personnel_number', applications: ['Carton', 'Personnel'] },
+      'Personnel Name' => { group: 'Personnel', resolver: 'personnel_name', applications: ['Carton', 'Personnel'] },
+      'Personnel Identifier (RFID)' => { group: 'Personnel', resolver: 'identifier', applications: ['Carton', 'Personnel'] },
       'Current Date' => { group: 'Time', resolver: 'FNC:current_date', applications: ['Bin', 'Carton', 'Pallet'] },
       'ISO Day' => { group: 'Time', resolver: 'FNC:iso_day', applications: ['Bin', 'Carton', 'Pallet'] },
       'ISO Week' => { group: 'Time', resolver: 'FNC:iso_week', applications: ['Bin', 'Carton', 'Pallet'] },
