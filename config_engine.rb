@@ -130,6 +130,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Delivery Barcode' => { group: 'Delivery', resolver: 'BCD:delivery', applications: ['Material Resource SKU Barcode'] },
       'Stock Adjustment Number' => { group: 'Stock Adjustment', resolver: 'BCD:stock_adjustment', applications: ['Stock Adjustment'] }
     },
+    # --------------------------------------------------------------------------
     'NS Packhouse' => {
       'Location Barcode' => { group: 'Location', resolver: 'BCD:location', applications: ['Location'] },
       'Location Long Code' => { group: 'Location', resolver: 'location_long_code', applications: ['Location'] },
@@ -171,6 +172,9 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Marketing Variety' => { group: 'Fruit', resolver: 'marketing_variety_code', applications: ['Carton', 'Pallet'] },
       'Marketing Variety Description' => { group: 'Fruit', resolver: 'marketing_variety_description', applications: ['Carton', 'Pallet'] },
       'Packed TM' => { group: 'Fruit', resolver: 'packed_tm_group', applications: ['Carton', 'Pallet'] },
+      'Specific TM' => { group: 'Fruit', resolver: 'target_market_name', applications: ['Carton', 'Pallet'] },
+      'Target customer' => { group: 'Fruit', resolver: 'target_customer', applications: ['Carton', 'Pallet'] },
+      'Inspection TM' => { group: 'Fruit', resolver: 'inspection_tm', applications: ['Carton', 'Pallet'] },
       'Product Code' => { group: 'Fruit', resolver: 'product_code', applications: ['Carton'] }, # TODO: Change to fs_product_code...
       'Season' => { group: 'Fruit', resolver: 'season_code', applications: ['Carton', 'Pallet'] },
       'Sell by Code' => { group: 'Fruit', resolver: 'sell_by_code', applications: ['Carton', 'Pallet'] },
@@ -212,6 +216,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'UOM' => { group: 'Bin', resolver: 'uom_code', applications: ['Bin'] },
       'Weighed date' => { group: 'Bin', resolver: 'weighed_date', applications: ['Bin'] }
     },
+    # --------------------------------------------------------------------------
     'UD Packhouse' => {
       'Account Code' => { group: 'Packhouse variables', resolver: 'account_code', applications: ['Packing'] },
       'Batch Code' => { group: 'Packhouse variables', resolver: 'batch_code', applications: ['Packing'] },
