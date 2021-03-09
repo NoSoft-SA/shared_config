@@ -216,6 +216,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'ISO Weekday' => { group: 'Time', resolver: 'FNC:iso_week_day', applications: ['Bin', 'Carton', 'Pallet'] },
       'Bin barcode' => { group: 'Bin', resolver: 'BCD:bin', applications: ['Bin'] },
       'Bin asset number' => { group: 'Bin', resolver: 'bin_asset_number', applications: ['Bin'] },
+      'RMT Class' => { group: 'Bin', resolver: 'rmt_class_code', applications: ['Bin'] },
       'Gross weight' => { group: 'Bin', resolver: 'gross_weight', applications: ['Bin', 'Pallet'] },
       'Nett weight' => { group: 'Bin', resolver: 'nett_weight', applications: ['Bin', 'Pallet'] },
       'UOM' => { group: 'Bin', resolver: 'uom_code', applications: ['Bin'] },
