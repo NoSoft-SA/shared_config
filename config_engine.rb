@@ -108,8 +108,8 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Voice Code Small digits' => { group: 'Voice Code', resolver: 'print_value_voice_code, small', applications: ['CMS'] },
       'PLU' => { group: 'PLU', resolver: 'plu', applications: ['CMS'] },
       'Season' => { group: 'Bin', resolver: 'season', applications: ['CMS'] },
-      'Delivery Variety' => { :group => 'Bin', :resolver => 'delivery_variety', applications: ['CMS'] },
-      'Stock Variety' => { :group => 'Bin', :resolver => 'stock_variety', applications: ['CMS'] },
+      'Delivery Variety' => { group: 'Bin', resolver: 'delivery_variety', applications: ['CMS'] },
+      'Stock Variety' => { group: 'Bin', resolver: 'stock_variety', applications: ['CMS'] },
       'Bin Brand' => { group: 'Bin', resolver: 'bin_brand', applications: ['CMS'] },
       'Bin Type' => { group: 'Bin', resolver: 'bin_type', applications: ['CMS'] },
       'Term' => { group: 'Bin', resolver: 'term', applications: ['CMS'] },
@@ -188,6 +188,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Count Swap Rule' => { group: 'Fruit', resolver: 'count_swap_rule', applications: ['Carton', 'Pallet'] },
       'Size Count UOM' => { group: 'Fruit', resolver: 'size_count_uom', applications: ['Carton', 'Pallet'] },
       'Size Reference' => { group: 'Fruit', resolver: 'size_reference', applications: ['Carton', 'Pallet'] },
+      'Size Reference or Actual Count' => { group: 'Fruit', resolver: 'size_reference_or_actual_count', applications: ['Carton', 'Pallet'] },
       'GGN' => { group: 'Packhouse', resolver: 'gap_code', applications: ['Carton', 'Pallet'] },
       'GLN' => { group: 'Packhouse', resolver: 'gln_code', applications: ['Carton', 'Pallet'] },
       'Line' => { group: 'Packhouse', resolver: 'line', applications: ['Carton', 'Pallet'] },
@@ -277,12 +278,12 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
 
   # Return a hash keyed by group with array of keys for use in designing.
   def grouped_names(section)
-    BASE_CONFIG[section].group_by { |_, v| v[:group] }.each_with_object({}) { |(k, v), hs| hs[k] = v.map(&:first) }
+    BASE_CONFIG[section].group_by { |_, v| v[:group] }.transform_values { |v| v.map(&:first) }
   end
 
   def list_all_names
     res = {}
-    BASE_CONFIG.keys.each do |section|
+    BASE_CONFIG.each_key do |section|
       res[section] = BASE_CONFIG[section].map { |key, val| [val[:group], key] }.sort
     end
     res
