@@ -34,9 +34,14 @@ namespace :deploy do
 
       puts("\n------------------------------------------------------------------------------------------------")
       puts('Log the deployment event: (Copy this command and run it against the deployment log application.)')
-      puts("----------------------------------------------------------------------------------------\n\n")
+      puts("------------------------------------------------------------------------------------------------\n\n")
       puts %(curl -d '#{hash.to_json}' -H 'Content-Type: application/json' http://nosoft.deploys/log_event)
       puts("------------------------------------------------------------------------------------------------\n\n")
+
+      File.open('deploystats.sh', 'a') do |f|
+        f.puts %(curl -d '#{hash.to_json}' -H 'Content-Type: application/json' http://nosoft.deploys/log_event)
+        f.puts("# ----------------------------------------------------------------------------------------------\n\n")
+      end
     end
   end
 end
