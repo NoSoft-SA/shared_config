@@ -228,8 +228,8 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'RMT Size' => { group: 'Bin', resolver: 'rmt_size_code', applications: ['Rebin'] },
       'Bin type' => { group: 'Bin', resolver: 'container_material_type_code', applications: ['Rebin'] },
       'Asset owner' => { group: 'Bin', resolver: 'container_material_owner', applications: ['Rebin'] },
-      'RMT Type' => { group: 'Bin', resolver: 'track_indicator_code', applications: ['Rebin'] },
-      'PC Code' => { group: 'Bin', resolver: 'pc_code', applications: ['Rebin'] },
+      'RMT Type' => { group: 'Bin', resolver: 'track_indicator_code', applications: ['Rebin', 'Carton'] },
+      'PC Code' => { group: 'Bin', resolver: 'pc_code', applications: ['Rebin', 'Carton'] },
       'UOM' => { group: 'Bin', resolver: 'uom_code', applications: ['Bin'] },
       'Weighed date' => { group: 'Bin', resolver: 'weighed_date', applications: ['Bin'] }
     },
