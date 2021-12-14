@@ -231,7 +231,15 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'RMT Type' => { group: 'Bin', resolver: 'track_indicator_code', applications: ['Rebin', 'Carton'] },
       'PC Code' => { group: 'Bin', resolver: 'pc_code', applications: ['Rebin', 'Carton'] },
       'UOM' => { group: 'Bin', resolver: 'uom_code', applications: ['Bin'] },
-      'Weighed date' => { group: 'Bin', resolver: 'weighed_date', applications: ['Bin'] }
+      'Weighed date' => { group: 'Bin', resolver: 'weighed_date', applications: ['Bin'] },
+      'Sample id' => { group: 'QC Sample', resolver: 'sample_id', applications: ['QC'] },
+      'Sample type' => { group: 'QC Sample', resolver: 'qc_sample_type_code', applications: ['QC'] },
+      'Sample date' => { group: 'QC Sample', resolver: 'sample_date', applications: ['QC'] },
+      'Context' => { group: 'QC Sample', resolver: 'context', applications: ['QC'] },
+      'Context ref' => { group: 'QC Sample', resolver: 'context_ref', applications: ['QC'] },
+      'Sample ref' => { group: 'QC Sample', resolver: 'ref_number', applications: ['QC'] },
+      'Description' => { group: 'QC Sample', resolver: 'short_description', applications: ['QC'] },
+      'Sample size' => { group: 'QC Sample', resolver: 'sample_size', applications: ['QC'] }
     },
     # --------------------------------------------------------------------------
     'UD Packhouse' => {
