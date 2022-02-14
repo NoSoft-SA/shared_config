@@ -192,6 +192,8 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Size Count UOM' => { group: 'Fruit', resolver: 'size_count_uom', applications: ['Carton', 'Pallet'] },
       'Size Reference' => { group: 'Fruit', resolver: 'size_reference', applications: ['Carton', 'Pallet'] },
       'Size Reference or Actual Count' => { group: 'Fruit', resolver: 'size_reference_or_actual_count', applications: ['Carton', 'Pallet'] },
+      'Voice Code Large digits' => { group: 'Voice Code', resolver: 'voice_code_large', applications: ['Carton'] },
+      'Voice Code Small digits' => { group: 'Voice Code', resolver: 'voice_code_small', applications: ['Carton'] },
       'GGN' => { group: 'Packhouse', resolver: 'gap_code', applications: ['Carton', 'Pallet'] },
       'GLN' => { group: 'Packhouse', resolver: 'gln_code', applications: ['Carton', 'Pallet'] },
       'Line' => { group: 'Packhouse', resolver: 'line', applications: ['Carton', 'Pallet', 'Rebin'] },
