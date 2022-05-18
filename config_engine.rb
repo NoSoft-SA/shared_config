@@ -224,6 +224,8 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Colour Percentage' => { group: 'Marketing', resolver: 'colour_percentage', applications: ['Carton', 'Pallet', 'Rebin'] },
       'Personnel Number' => { group: 'Personnel', resolver: 'personnel_number', applications: ['Carton', 'Personnel'] },
       'Personnel Name' => { group: 'Personnel', resolver: 'personnel_name', applications: ['Carton', 'Personnel'] },
+      'Personnel First Name' => { group: 'Personnel', resolver: 'personnel_first_name', applications: ['Carton', 'Personnel'] },
+      'Personnel Surname' => { group: 'Personnel', resolver: 'personnel_surname', applications: ['Carton', 'Personnel'] },
       'Personnel Identifier (RFID)' => { group: 'Personnel', resolver: 'identifier', applications: ['Carton', 'Personnel'] },
       'Current Date' => { group: 'Time', resolver: 'FNC:current_date', applications: ['Bin', 'Carton', 'Pallet', 'Rebin'] },
       'Current DateTime' => { group: 'Time', resolver: 'FNC:current_date_time', applications: ['Bin', 'Carton', 'Pallet', 'Rebin'] },
