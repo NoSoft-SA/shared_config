@@ -229,6 +229,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Personnel Surname' => { group: 'Personnel', resolver: 'personnel_surname', applications: ['Carton', 'Personnel'] },
       'Personnel Identifier (RFID)' => { group: 'Personnel', resolver: 'identifier', applications: ['Carton', 'Personnel'] },
       'Current Date' => { group: 'Time', resolver: 'FNC:current_date', applications: ['Bin', 'Carton', 'Pallet', 'Rebin'] },
+      'Current Date (YYMMDD)' => { group: 'Time', resolver: 'FNC:current_date_compact', applications: ['Bin', 'Carton', 'Pallet', 'Rebin'] },
       'Current DateTime' => { group: 'Time', resolver: 'FNC:current_date_time', applications: ['Bin', 'Carton', 'Pallet', 'Rebin'] },
       'Created at' => { group: 'Time', resolver: 'created_at', applications: ['Bin', 'Rebin'] },
       'ISO Day' => { group: 'Time', resolver: 'FNC:iso_day', applications: ['Bin', 'Carton', 'Pallet', 'Rebin'] },
