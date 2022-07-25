@@ -206,6 +206,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'PHC' => { group: 'Packhouse', resolver: 'phc', applications: ['Carton', 'Pallet'] },
       'Pick Ref' => { group: 'Packhouse', resolver: 'pick_ref', applications: ['Carton', 'Pallet'] },
       'Production Run ID' => { group: 'Packhouse', resolver: 'production_run_id', applications: ['Carton', 'Pallet', 'Rebin', 'QC'] },
+      'Production Run Pool' => { group: 'Packhouse', resolver: 'pool', applications: ['Carton', 'Pallet', 'Rebin'] },
       'Pack Date' => { group: 'Packhouse', resolver: 'pack_date', applications: ['Pallet'] },
       'Pack Week' => { group: 'Packhouse', resolver: 'pack_week', applications: ['Pallet'] },
       'Run Batch Number' => { group: 'Packhouse', resolver: 'run_batch_number', applications: ['Carton', 'Pallet', 'Rebin'] },
