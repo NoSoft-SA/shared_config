@@ -203,6 +203,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Line' => { group: 'Packhouse', resolver: 'line', applications: ['Carton', 'Pallet', 'Rebin'] },
       'OGL Number' => { group: 'Packhouse', resolver: 'ogl_number', applications: ['Carton', 'Pallet'] },
       'Packhouse' => { group: 'Packhouse', resolver: 'packhouse', applications: ['Carton', 'Pallet'] },
+      'Pallet Base' => { group: 'Packhouse', resolver: 'pallet_base', applications: ['Pallet'] },
       'PHC' => { group: 'Packhouse', resolver: 'phc', applications: ['Carton', 'Pallet'] },
       'Pick Ref' => { group: 'Packhouse', resolver: 'pick_ref', applications: ['Carton', 'Pallet'] },
       'Production Run ID' => { group: 'Packhouse', resolver: 'production_run_id', applications: ['Carton', 'Pallet', 'Rebin', 'QC'] },
