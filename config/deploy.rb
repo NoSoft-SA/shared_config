@@ -1,7 +1,7 @@
 # config valid for current version and patch releases of Capistrano
 # lock '~> 3.11.0'
 
-set :chruby_ruby, 'ruby-2.5.0'
+set :chruby_ruby, 'ruby-3.1.2'
 
 set :application, 'shared_config'
 set :repo_url, 'git@github.com:NoSoft-SA/shared_config.git'
