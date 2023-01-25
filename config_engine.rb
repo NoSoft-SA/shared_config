@@ -200,7 +200,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Voice Code Small digits' => { group: 'Voice Code', resolver: 'voice_code_small', applications: ['Carton'] },
       'GGN' => { group: 'Packhouse', resolver: 'gap_code', applications: ['Carton', 'Pallet'] },
       'GLN' => { group: 'Packhouse', resolver: 'gln_code', applications: ['Carton', 'Pallet'] },
-      'Line' => { group: 'Packhouse', resolver: 'line', applications: ['Carton', 'Pallet', 'Rebin'] },
+      'Line' => { group: 'Packhouse', resolver: 'line', applications: ['Carton', 'Pallet', 'Rebin', 'Packpoint'] },
       'OGL Number' => { group: 'Packhouse', resolver: 'ogl_number', applications: ['Carton', 'Pallet'] },
       'Packhouse' => { group: 'Packhouse', resolver: 'packhouse', applications: ['Carton', 'Pallet'] },
       'Pallet Base' => { group: 'Packhouse', resolver: 'pallet_base', applications: ['Pallet'] },
