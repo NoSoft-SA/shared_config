@@ -141,6 +141,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Location Description' => { group: 'Location', resolver: 'location_description', applications: ['Location', 'QC'] },
       'Drop number' => { group: 'Pack point', resolver: 'drop_number', applications: ['Carton'] },
       'Pack point (Drop station)' => { group: 'Pack point', resolver: 'plant_resource_code', applications: ['Carton', 'Packpoint'] },
+      'Kick Off' => { group: 'Pack point', resolver: 'kick_off', applications: ['Carton'] },
       'Basic Pack' => { group: 'Carton', resolver: 'basic_pack_code', applications: ['Carton', 'Pallet'] },
       'Carton Number' => { group: 'Carton', resolver: 'carton_label_id', applications: ['Carton'] },
       'Fruit Sticker' => { group: 'Carton', resolver: 'fruit_sticker', applications: ['Carton'] },
