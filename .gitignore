@@ -2,3 +2,4 @@ shared_config_wrapper.sh
 client_test.rb
 log/*
 deploystats.sh
+deploystats.sh.bak
