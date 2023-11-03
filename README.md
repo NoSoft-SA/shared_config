@@ -40,10 +40,11 @@ bundle install
 
 cp shared_config_wrapper.sh.template shared_config_wrapper.sh
 sed -i s,'$CURRENT',"$PWD",g ./shared_config_wrapper.sh
-sed -i s,'$RUBY',"ruby-2.5.0",g ./shared_config_wrapper.sh
+sed -i s,'$RUBY',"$(cat .ruby-version)",g ./shared_config_wrapper.sh
 
 cp crossbeams-shared-config.service.template crossbeams-shared-config.service
 sed -i s,'$CURRENT',"$PWD",g ./crossbeams-shared-config.service
+sed -i s,'$SHARED',"$PWD",g ./crossbeams-shared-config.service
 sed -i s,'$USER',"$USER",g ./crossbeams-shared-config.service
 ```
 
