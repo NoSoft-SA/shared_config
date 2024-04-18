@@ -148,6 +148,7 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Pallet Number' => { group: 'Carton', resolver: 'pallet_number', applications: ['Carton', 'Pallet'] },
       'Pallet Sequences' => { group: 'Pallet', resolver: 'FNC:sequence_table,pallet_id', applications: ['Pallet'] },
       'Carton Quantity' => { group: 'Pallet', resolver: 'carton_quantity', applications: ['Pallet'] },
+      'Batch Code' => { group: 'Pallet', resolver: 'batch_code', applications: ['Pallet'] },
       'Cartons Per Pallet' => { group: 'Carton', resolver: 'cartons_per_pallet', applications: ['Carton'] },
       'Label Name' => { group: 'Carton', resolver: 'label_name', applications: ['Carton'] },
       'Pack Nett Weight' => { group: 'Carton', resolver: 'pack_nett_weight', applications: ['Carton', 'Pallet'] },
