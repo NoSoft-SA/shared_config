@@ -276,9 +276,9 @@ class ConfigEngine # rubocop:disable Metrics/ClassLength
       'Fruit Received at' => { group: 'MRL', resolver: 'fruit_received_at', applications: ['MRL'] },
       'Sample Submitted at' => { group: 'MRL', resolver: 'sample_submitted_at', applications: ['MRL'] },
       'Lab code' => { group: 'MRL', resolver: 'lab_code', applications: ['MRL'] },
-      'Scale Barcode' => { group: 'Resources', resolver: 'BCD:system_resource', applications: ['Scale'] },      
-      'Plant resource code' => { group: 'Resources', resolver: 'plant_resource_code', applications: ['Scale'] },      
-      'Plant resource description' => { group: 'Resources', resolver: 'description', applications: ['Scale'] }
+      'Scale Barcode' => { group: 'Scale', resolver: 'BCD:system_resource', applications: ['Scale'] },      
+      'Scale code' => { group: 'Scale', resolver: 'plant_resource_code', applications: ['Scale'] },      
+      'Scale description' => { group: 'Scale', resolver: 'description', applications: ['Scale'] }
     }
   }.freeze
 
