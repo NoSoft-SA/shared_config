@@ -1,4 +1,5 @@
 shared_config_wrapper.sh
+crossbeams-shared-config.service
 client_test.rb
 log/*
 deploystats.sh
